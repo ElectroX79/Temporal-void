@@ -1,0 +1,46 @@
+/* SPDX-FileCopyrightText: Copyright (C) ARDUINO SRL (http://www.arduino.cc)
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@import url('fonts/fonts.css');
+
+body {
+    margin: 0; padding: 20px;
+    background-color: #DAE3E3; color: #333;
+    display: flex; flex-direction: column; align-items: center;
+}
+
+.app-container { max-width: 1300px; width: 100%; }
+.header { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 24px; }
+.arduino-text { color: #008184; font-family: "Roboto Mono", monospace; font-size: 20px; font-weight: 700; }
+.arduino-logo { height: 24px; }
+
+.tabs { display: inline-flex; gap: 8px; background: #ECF1F1; margin-bottom: 1em; border-radius: 8px; padding: 2px; border: 1px solid #C9D2D2; }
+.tab { width: 148px; height: 27px; border: none; background: transparent; cursor: pointer; font-size: 12px; }
+.tab.active { background: #FFF; color: #008184; font-weight: 700; border-radius: 6px; border: 1px solid #C9D2D2; }
+
+.tab-content { display: none; gap: 24px; flex-direction: column; }
+.tab-content.active { display: flex; }
+
+.top-row { display: flex; gap: 16px; width: 100%; flex-wrap: wrap; justify-content: center; }
+
+/* AJUSTE PARA 3 COLUMNAS */
+.top-row .container {
+    width: calc(33.33% - 12px);
+    min-width: 300px;
+    background: #ECF1F1; padding: 16px; border-radius: 8px; position: relative;
+    box-sizing: border-box;
+}
+
+.derived-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
+.derived-container { width: calc(33.33% - 12px); min-width: 250px; background: #ECF1F1; padding: 16px; border-radius: 8px; }
+
+.graph-header { font-family: 'Roboto Mono'; font-weight: 700; font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.info-btn { width: 14px; height: 14px; cursor: pointer; background: #C9D2D2; border-radius: 50%; padding: 2px; }
+.popover { position: absolute; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); display: none; z-index: 100; width: 200px; font-size: 11px; }
+
+#live-circle { width: 8px; height: 8px; border-radius: 50%; background: #AA4335; display: inline-block; margin-right: 5px; }
+#live-circle.flash { animation: flash 1s infinite alternate; }
+@keyframes flash { from { opacity: 1; } to { opacity: 0; } }
+
+.error-message { background: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; margin-top: 10px; }

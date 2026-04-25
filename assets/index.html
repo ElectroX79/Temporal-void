@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Monitoring</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="libs/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div class="app-container">
+    <div class="header">
+        <h1 class="arduino-text">Home climate monitoring and storage</h1>
+        <img class="arduino-logo" src="./img/RGB-Arduino-Logo_Color Inline Loop.svg" alt="Arduino Logo">
+    </div>
+
+    <div class="tabs">
+        <button class="tab" data-tab="historical-1d">1 D</button>
+        <button class="tab" data-tab="historical-1h">1 h</button>
+        <button class="tab-with-circle tab active" data-tab="live">
+            <span id="live-circle"></span> Live
+        </button>
+    </div>
+
+    <div class="main-content">
+        <div id="historical-1d" class="tab-content">
+            <div class="top-row">
+                <div class="container">
+                    <div class="graph-header"><span>Temp (°C)</span><img src="./img/info.svg" class="info-btn temp"/><div class="popover"></div></div>
+                    <canvas id="temperature-1d-chart"></canvas>
+                </div>
+                <div class="container">
+                    <div class="graph-header"><span>Hum (%)</span><img src="./img/info.svg" class="info-btn humidity"/><div class="popover"></div></div>
+                    <canvas id="humidity-1d-chart"></canvas>
+                </div>
+                <div class="container">
+                    <div class="graph-header"><span>Light (lx)</span><img src="./img/info.svg" class="info-btn light"/><div class="popover"></div></div>
+                    <canvas id="light-1d-chart"></canvas>
+                </div>
+            </div>
+            <div class="derived-row">
+                <div class="container derived-container"><span>Dew Point</span><canvas id="dew_point-1d-chart"></canvas></div>
+                <div class="container derived-container"><span>Heat Index</span><canvas id="heat_index-1d-chart"></canvas></div>
+                <div class="container derived-container"><span>Abs Humidity</span><canvas id="absolute_humidity-1d-chart"></canvas></div>
+            </div>
+        </div>
+
+        <div id="historical-1h" class="tab-content">
+            <div class="top-row">
+                <div class="container"><span>Temp (°C)</span><canvas id="temperature-1h-chart"></canvas></div>
+                <div class="container"><span>Hum (%)</span><canvas id="humidity-1h-chart"></canvas></div>
+                <div class="container"><span>Light (lx)</span><canvas id="light-1h-chart"></canvas></div>
+            </div>
+            <div class="derived-row">
+                <div class="container derived-container"><span>Dew Point</span><canvas id="dew_point-1h-chart"></canvas></div>
+                <div class="container derived-container"><span>Heat Index</span><canvas id="heat_index-1h-chart"></canvas></div>
+                <div class="container derived-container"><span>Abs Humidity</span><canvas id="absolute_humidity-1h-chart"></canvas></div>
+            </div>
+        </div>
+
+        <div id="live" class="tab-content active">
+            <div class="top-row">
+                <div class="container"><span>Temp (°C)</span><canvas id="temperature-live-chart"></canvas></div>
+                <div class="container"><span>Hum (%)</span><canvas id="humidity-live-chart"></canvas></div>
+                <div class="container"><span>Light (lx)</span><canvas id="light-live-chart"></canvas></div>
+            </div>
+            <div class="derived-row">
+                <div class="container derived-container"><span>Dew Point</span><canvas id="dew_point-live-chart"></canvas></div>
+                <div class="container derived-container"><span>Heat Index</span><canvas id="heat_index-live-chart"></canvas></div>
+                <div class="container derived-container"><span>Abs Humidity</span><canvas id="absolute_humidity-live-chart"></canvas></div>
+            </div>
+        </div>
+    </div>
+    <div id="error-container" class="error-message" style="display: none;"></div>
+</div>
+</body>
+</html>
