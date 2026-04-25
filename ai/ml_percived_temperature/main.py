@@ -13,13 +13,13 @@ def preprocess_weather_data(input_path, output_path="modifiedWeatherHistory.csv"
     cols_to_drop = [
         "Precip Type", "Wind Speed (km/h)", "Wind Bearing (degrees)", 
         "Visibility (km)", "Loud Cover", "Pressure (millibars)", 
-        "Daily Summary"
+        "Daily Summary", "Summary"
     ]
     df = df.drop(columns=cols_to_drop, errors='ignore')
 
     # 3. Formatear categorías
-    if 'Summary' in df.columns:
-        df['Summary'] = df['Summary'].astype('category')
+    #if 'Summary' in df.columns:
+    #   df['Summary'] = df['Summary'].astype('category')
 
     # 4. Procesamiento de fechas
     if 'Formatted Date' in df.columns:

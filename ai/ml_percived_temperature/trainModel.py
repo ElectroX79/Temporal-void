@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 from main import preprocess_weather_data
 
 df = preprocess_weather_data('weatherHistory.csv')
-df['Summary'] = df['Summary'].astype('category')
+#df['Summary'] = df['Summary'].astype('category')
 
 x = df.drop("Apparent Temperature (C)", axis=1)
 y = df["Apparent Temperature (C)"]
