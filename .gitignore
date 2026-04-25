@@ -1,6 +1,2 @@
-*.csv
-*.parquet
-*.exe
-*.x
-*.zip
-
+# ignore app cache folder
+.cache/
